@@ -1,0 +1,22 @@
+﻿<Page x:Class="MagazineAPP.Pages.TovarPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MagazineAPP.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="810" d:DesignWidth="900"
+      Title="TovarPage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="2">
+            <Button Name="Btn_trash" Click="Btn_trash_Click" Content="Корзина" Width="100" Height="25"/>
+        </Grid>
+        
+    </Grid>
+</Page>

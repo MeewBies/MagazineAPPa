@@ -13,17 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MagazineAPP
+namespace MagazineAPP.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для TovarPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TovarPage : Page
     {
-        public MainWindow()
+        public TovarPage()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Pages.TovarPage());
+        }
+
+        private void Btn_trash_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TrashCan());
         }
     }
 }
