@@ -37,6 +37,7 @@ namespace MagazineAPP
                     var user = DB.c.con.Пользователь.FirstOrDefault(i => i.ID == dannie.userID);
                     Btn_vhod.Content = "Выйти";
                     LablaText.Text = $"Здравствуйте, {user.ФИО}!卐";
+                    MainFrame.Navigate(new Pages.TovarPage());
                 }
             }
             else
