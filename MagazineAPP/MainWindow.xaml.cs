@@ -28,15 +28,22 @@ namespace MagazineAPP
 
         private void Btn_vhod_Click(object sender, RoutedEventArgs e)
         {
-            if (Btn_vhod.Content == "Войти" && dannie.userID != 0)
+            if (Btn_vhod.Content == "Войти")
             {
                 ProjectWin.AuthWin win = new ProjectWin.AuthWin();
                 win.ShowDialog();
-                Btn_vhod.Content = "Выйти";
+                if (dannie.userID != 0)
+                {
+                    var user = DB.c.con.Пользователь.FirstOrDefault(i => i.ID == dannie.userID);
+                    Btn_vhod.Content = "Выйти";
+                    LablaText.Text = $"Здравствуйте, {user.ФИО}!卐";
+                }
             }
             else
             {
                 Btn_vhod.Content = "Войти";
+                LablaText.Text = $"Здравствуйте, Гость!卐";
+                dannie.userID = 0;
             }
         }
     }
