@@ -17,6 +17,22 @@
         <Grid Grid.Row="2">
             <Button Name="Btn_trash" Click="Btn_trash_Click" Content="Корзина" Width="100" Height="25"/>
         </Grid>
-        
+        <DataGrid x:Name="dgTrash" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,320">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="50" Width="50" Source="{Binding Изображение}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Наименование}"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Тип}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Цена}"/>
+                <DataGridTextColumn Header="Колличество" Binding="{Binding Колличество}"/>
+                <DataGridTextColumn Header="Производитель" Binding="{Binding Производитель}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Page>

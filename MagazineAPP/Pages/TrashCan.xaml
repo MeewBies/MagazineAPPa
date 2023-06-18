@@ -9,18 +9,18 @@
       Title="TrashCan" Width="900">
 
     <Grid>
-        <DataGrid x:Name="dgTrash" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <DataGrid x:Name="dgTrash" IsReadOnly="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" d:ItemsSource="{d:SampleData ItemCount=5}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Height="50" Width="50" Source="{Binding Изображение}"/>
+                            <Image Height="50" Width="50" Source="{Binding Товар.Изображение}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Товар.Наименование}"/>
                 <DataGridTextColumn Header="Тип" Binding="{Binding Товар.Тип}"/>
-                <DataGridTextColumn Header="Цена" Binding="{Binding Цена}"/>
+                <DataGridTextColumn Header="Цена" Width="60" Binding="{Binding Цена}"/>
                 <DataGridTextColumn Header="Колличество" Binding="{Binding Колличество}"/>
                 <DataGridTextColumn Header="Производитель" Binding="{Binding Товар.Производитель}"/>
             </DataGrid.Columns>

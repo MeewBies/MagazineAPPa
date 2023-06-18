@@ -23,6 +23,7 @@ namespace MagazineAPP.Pages
         public TovarPage()
         {
             InitializeComponent();
+            dgTrash.ItemsSource = DB.c.con.Товар.ToList();
         }
 
         private void Btn_trash_Click(object sender, RoutedEventArgs e)
