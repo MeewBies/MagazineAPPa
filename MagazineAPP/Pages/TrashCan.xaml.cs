@@ -23,6 +23,7 @@ namespace MagazineAPP.Pages
         public TrashCan()
         {
             InitializeComponent();
+            dgTrash.ItemsSource = DB.c.con.Товар_корзина.ToList();
         }
     }
 }
