@@ -8,6 +8,6 @@ namespace MagazineAPP
 {
     public class dannie
     {
-        public static int userID;
+        public static int userID = 0;
     }
 }

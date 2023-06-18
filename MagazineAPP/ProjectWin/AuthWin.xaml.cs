@@ -31,6 +31,7 @@ namespace MagazineAPP.ProjectWin
             {
                 dannie.userID = user.ID;
                 MessageBox.Show("Добро пожаловать");
+                Close();
             }
             else MessageBox.Show("Лох");
         }
