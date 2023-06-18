@@ -24,6 +24,11 @@ namespace MagazineAPP.Pages
         {
             InitializeComponent();
             dgTrash.ItemsSource = DB.c.con.Товар.ToList();
+            if (dannie.userID != 0)
+                Btn_trash.Visibility = Visibility.Visible;
+            else
+                Btn_trash.Visibility = Visibility.Hidden;
+
         }
 
         private void Btn_trash_Click(object sender, RoutedEventArgs e)

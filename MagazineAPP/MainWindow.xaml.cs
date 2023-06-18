@@ -44,6 +44,7 @@ namespace MagazineAPP
                 Btn_vhod.Content = "Войти";
                 LablaText.Text = $"Здравствуйте, Гость!卐";
                 dannie.userID = 0;
+                MainFrame.Navigate(new Pages.TovarPage());
             }
         }
     }
