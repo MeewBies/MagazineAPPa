@@ -25,5 +25,11 @@ namespace MagazineAPP
             InitializeComponent();
             MainFrame.Navigate(new Pages.TovarPage());
         }
+
+        private void Btn_vhod_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectWin.AuthWin win = new ProjectWin.AuthWin();
+            win.ShowDialog();
+        }
     }
 }

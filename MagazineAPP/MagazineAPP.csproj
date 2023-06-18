@@ -72,6 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="dannie.cs" />
     <Compile Include="DB\c.cs" />
     <Compile Include="DB\Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -128,6 +129,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProjectWin\AuthWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\TovarPage.xaml.cs">
@@ -138,6 +143,9 @@
     </Compile>
     <Compile Include="Pages\Zakaz.xaml.cs">
       <DependentUpon>Zakaz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectWin\AuthWin.xaml.cs">
+      <DependentUpon>AuthWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

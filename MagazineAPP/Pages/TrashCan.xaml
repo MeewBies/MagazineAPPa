@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MagazineAPP.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450"
-      Title="TrashCan" Width="562">
+      Title="TrashCan" Width="900">
 
     <Grid>
         <DataGrid x:Name="dgTrash" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" d:ItemsSource="{d:SampleData ItemCount=5}">
@@ -14,7 +14,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Height="25" Width="25" Source="{Binding Изображение}"/>
+                            <Image Height="50" Width="50" Source="{Binding Изображение}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
