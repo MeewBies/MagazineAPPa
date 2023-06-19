@@ -43,6 +43,7 @@ namespace MagazineAPP.Pages
             var prov = DB.c.con.Товар_корзина.FirstOrDefault(i => i.ID_Товар != tovar_korz.ID_Товар && i.Корзина.ID_Пользователь != dannie.userID);
             if (prov == null)
             {
+                korzina.Общая_сумма += tovar.Цена;
                 DB.c.con.Товар_корзина.Add(tovar_korz);
                 DB.c.con.SaveChanges();
             }

@@ -25,6 +25,7 @@ namespace MagazineAPP.Pages
         {
             InitializeComponent();
             dgTrash.ItemsSource = DB.c.con.Товар_корзина.ToList();
+            moneycash.Text = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID).Общая_сумма.ToString();
         }
 
         private void addTovar_Click(object sender, RoutedEventArgs e)
@@ -33,8 +34,11 @@ namespace MagazineAPP.Pages
             var mon = DB.c.con.Товар.FirstOrDefault(i => i.ID == tovar.ID_Товар);
             int money = mon.Цена;
             tovar.Цена += money;
+            var trash = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID);
+            trash.Общая_сумма += money;
             tovar.Колличество += 1;
             DB.c.con.SaveChanges();
+            moneycash.Text = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID).Общая_сумма.ToString();
             dgTrash.ItemsSource = DB.c.con.Товар_корзина.ToList();
         }
 
@@ -43,11 +47,15 @@ namespace MagazineAPP.Pages
             var tovar = dgTrash.SelectedItem as DB.Товар_корзина;
             var mon = DB.c.con.Товар.FirstOrDefault(i => i.ID == tovar.ID_Товар);
             int money = mon.Цена;
+            var trash = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID);
+            
             if (tovar.Колличество != 1)
             {
                 tovar.Колличество -= 1;
+                trash.Общая_сумма -= money;
                 tovar.Цена -= money;
                 DB.c.con.SaveChanges();
+                moneycash.Text = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID).Общая_сумма.ToString();
                 dgTrash.ItemsSource = DB.c.con.Товар_корзина.ToList();
             }
         }
@@ -55,15 +63,22 @@ namespace MagazineAPP.Pages
         private void removeTovar_Click_1(object sender, RoutedEventArgs e)
         {
             var tovar = dgTrash.SelectedItem as DB.Товар_корзина;
+            var trash = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID);
+            trash.Общая_сумма -= tovar.Цена;
             DB.c.con.Товар_корзина.Remove(tovar);
             DB.c.con.SaveChanges();
+            moneycash.Text = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID).Общая_сумма.ToString();
             dgTrash.ItemsSource = DB.c.con.Товар_корзина.ToList();
         }
 
         private void pdfButton_Click(object sender, RoutedEventArgs e)
         {
-            var pdfRender = new HtmlToPdf();
-            pdfRender.RenderHtmlAsPdf("<h1>Проверка<h1>").SaveAs("test.pdf");
+            
+        }
+
+        private void fuckGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TovarPage());
         }
     }
 }
