@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IronPdf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,12 @@ namespace MagazineAPP.Pages
             DB.c.con.Товар_корзина.Remove(tovar);
             DB.c.con.SaveChanges();
             dgTrash.ItemsSource = DB.c.con.Товар_корзина.ToList();
+        }
+
+        private void pdfButton_Click(object sender, RoutedEventArgs e)
+        {
+            var pdfRender = new HtmlToPdf();
+            pdfRender.RenderHtmlAsPdf("<h1>Проверка<h1>").SaveAs("test.pdf");
         }
     }
 }

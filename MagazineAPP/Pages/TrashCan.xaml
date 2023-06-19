@@ -9,6 +9,10 @@
       Title="TrashCan" Width="900">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="139*"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
         <DataGrid x:Name="dgTrash" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" d:ItemsSource="{d:SampleData ItemCount=5}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
@@ -42,6 +46,10 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Grid Background="White" Grid.Row="1">
+            <Button x:Name="pdfButton" Click="pdfButton_Click" Content="Отчет" HorizontalAlignment="Center" VerticalAlignment="Center" Width="114"/>
+
+        </Grid>
 
     </Grid>
 </Page>
