@@ -24,16 +24,29 @@ namespace MagazineAPP.Pages
         {
             InitializeComponent();
             dgTrash.ItemsSource = DB.c.con.Товар.ToList();
-            if (dannie.userID != 0)
-                Btn_trash.Visibility = Visibility.Visible;
-            else
-                Btn_trash.Visibility = Visibility.Hidden;
-
         }
 
         private void Btn_trash_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TrashCan());
+        }
+
+        private void addKorz_Click(object sender, RoutedEventArgs e)
+        {
+            var tovar = dgTrash.SelectedItem as DB.Товар;
+            var korzina = DB.c.con.Корзина.FirstOrDefault(i => i.ID_Пользователь == dannie.userID);
+            var tovar_korz = new DB.Товар_корзина();
+            tovar_korz.ID_Товар = tovar.ID;
+            tovar_korz.ID_Корзина = korzina.ID;
+            tovar_korz.Колличество = 1;
+            tovar_korz.Цена = tovar.Цена;
+            var prov = DB.c.con.Товар_корзина.FirstOrDefault(i => i.ID_Товар != tovar_korz.ID_Товар && i.Корзина.ID_Пользователь != dannie.userID);
+            if (prov == null)
+            {
+                DB.c.con.Товар_корзина.Add(tovar_korz);
+                DB.c.con.SaveChanges();
+            }
+            else MessageBox.Show("Данный товар уже в корзине");
         }
     }
 }

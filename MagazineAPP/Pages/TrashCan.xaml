@@ -9,7 +9,7 @@
       Title="TrashCan" Width="900">
 
     <Grid>
-        <DataGrid x:Name="dgTrash" IsReadOnly="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <DataGrid x:Name="dgTrash" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" d:ItemsSource="{d:SampleData ItemCount=5}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -23,6 +23,23 @@
                 <DataGridTextColumn Header="Цена" Width="60" Binding="{Binding Цена}"/>
                 <DataGridTextColumn Header="Колличество" Binding="{Binding Колличество}"/>
                 <DataGridTextColumn Header="Производитель" Binding="{Binding Товар.Производитель}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button ToolTip="Уменьшить" x:Name="removeTovar" Click="removeTovar_Click" Height="20" Width="20" Content="-"/>
+                                <Button  x:Name="addTovar" Click="addTovar_Click" Height="20" Width="20" Content="+"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="removeTovar" Click="removeTovar_Click_1" Height="20" Width="20" ToolTip="Удалить"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
