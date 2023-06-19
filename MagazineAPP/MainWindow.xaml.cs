@@ -28,7 +28,7 @@ namespace MagazineAPP
 
         private void Btn_vhod_Click(object sender, RoutedEventArgs e)
         {
-            if (Btn_vhod.Content == "Войти")
+            if (Btn_vhod.Content != "Выйти")
             {
                 ProjectWin.AuthWin win = new ProjectWin.AuthWin();
                 win.ShowDialog();
